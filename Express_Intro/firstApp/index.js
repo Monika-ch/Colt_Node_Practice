@@ -53,6 +53,15 @@ app.get("/dogs", (req, res) => {
   res.send("WOOFF!!");
 });
 
+app.get("/search", (req, res) => {
+  console.log(req.query);
+  const { q } = req.query;
+  if (!q) {
+    res.send("NOTHING FOUND IF NOTHING SEARCHED!");
+  }
+  res.send(`<h1>Search results for: ${q}</h1>`);
+});
+
 app.get("*", (req, res) => {
   // "*" is supposed to be at very end! It means to match everything else!
   res.send("I don't know that path!!");
