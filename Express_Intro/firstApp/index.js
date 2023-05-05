@@ -25,6 +25,22 @@ app.get("/", (req, res) => {
   res.send("<h1>This is the home page!</h1>");
 });
 
+// ******** adding path parameters:
+app.get("/r/:subreddit", (req, res) => {
+  console.log(req.params);
+  // res.send(
+  //   "THIS IS A SUBREDDIT! YOU CAN USE ANY PATH FOLLOWING THIS PATTERN - r/anyPathHere !"
+  // );
+  const { subreddit } = req.params;
+  res.send(`<h1>Browsing the ${subreddit} subreddit!</h1>`);
+});
+
+app.get("/r/:subreddits/:postId", (req, res) => {
+  console.log(req.params);
+  const { subreddit, postId } = req.params;
+  res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1>`);
+});
+
 app.get("/cats", (req, res) => {
   res.send("MEOWW!!");
 });
