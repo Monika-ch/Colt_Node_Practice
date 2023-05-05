@@ -22,7 +22,7 @@ console.dir(app);
 
 app.get("/", (req, res) => {
   //.get takes 2 params- path and a callback function
-  res.send("<h1>This is the home page!</h1>");
+  res.send("<h1>Welcome to the home page!</h1>");
 });
 
 // ******** adding path parameters:
